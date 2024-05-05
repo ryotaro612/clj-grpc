@@ -18,7 +18,9 @@
                  [org.slf4j/log4j-over-slf4j "1.7.32"]]
   :min-lein-version "2.0.0"
   :resource-paths ["config", "resources"]
+  :source-paths ["src", "gen"]
   :profiles {:dev {:aliases {"run-dev" ["trampoline" "run" "-m" "pedestal-grpc.server/run-dev"]}
+                   :resource-paths ["dev/resources"]
                    :dependencies [[io.pedestal/pedestal.service-tools "0.5.9"]]}
              :uberjar {:aot [pedestal-grpc.server]}}
   :main ^{:skip-aot true} pedestal-grpc.server)
