@@ -1,6 +1,7 @@
 # Clojure
 .lein-repl-history
 target
+.nrepl-port
 # Generated files
 gen
 # Emacs
