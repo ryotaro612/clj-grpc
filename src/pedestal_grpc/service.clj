@@ -8,10 +8,7 @@
             [protojure.pedestal.core :as protojure.pedestal]
             [protojure.pedestal.routes :as proutes]
             [pedestal_grpc.addressbook.Greeter.server :as greeter]
-            ;[com.example.addressbook.Greeter.server :as greeter]
-            ;[com.example.addressbook :as addressbook]
-            [pedestal_grpc.addressbook :as addressbook]
-            ))
+            [pedestal_grpc.addressbook :as addressbook]))
 
 (defn about-page
   [request]
@@ -22,6 +19,10 @@
 (defn home-page
   [request]
   (ring-resp/response "Hello from pedestal-grpc, backed by Protojure Template!"))
+
+(defn respond-health
+  [request]
+  (ring-resp/response {:status "up"}))
 
 ;; -- PROTOC-GEN-CLOJURE --
 ;; Implement our "Greeter" service interface.  The compiler generates
@@ -53,7 +54,8 @@
 
 ;; Tabular routes
 (def routes #{["/" :get (conj common-interceptors `home-page)]
-              ["/about" :get (conj common-interceptors `about-page)]})
+              ["/about" :get (conj common-interceptors `about-page)]
+              ["/v1/health" :get [http/json-body `respond-health]]})
 
 ;; -- PROTOC-GEN-CLOJURE --
 ;; Add the routes produced by Greeter->routes
