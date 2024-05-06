@@ -1,5 +1,8 @@
 # Clojure
 .lein-repl-history
 target
+# Generated files
+gen
 # Emacs
 *~
+\#*
