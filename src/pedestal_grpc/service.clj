@@ -7,8 +7,11 @@
             ;; -- PROTOC-GEN-CLOJURE --
             [protojure.pedestal.core :as protojure.pedestal]
             [protojure.pedestal.routes :as proutes]
-            [com.example.addressbook.Greeter.server :as greeter]
-            [com.example.addressbook :as addressbook]))
+            [pedestal_grpc.addressbook.Greeter.server :as greeter]
+            ;[com.example.addressbook.Greeter.server :as greeter]
+            ;[com.example.addressbook :as addressbook]
+            [pedestal_grpc.addressbook :as addressbook]
+            ))
 
 (defn about-page
   [request]

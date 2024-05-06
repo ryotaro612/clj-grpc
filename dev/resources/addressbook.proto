@@ -1,6 +1,5 @@
-
 syntax = "proto3";
-package com.example.addressbook;
+package pedestal_grpc.addressbook;
 
 message Person {
     string name = 1;

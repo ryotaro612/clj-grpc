@@ -21,6 +21,7 @@
   :source-paths ["src", "gen"]
   :profiles {:dev {:aliases {"run-dev" ["trampoline" "run" "-m" "pedestal-grpc.server/run-dev"]}
                    :resource-paths ["dev/resources"]
+                   :source-paths ["dev/src"]
                    :dependencies [[io.pedestal/pedestal.service-tools "0.5.9"]]}
              :uberjar {:aot [pedestal-grpc.server]}}
   :main ^{:skip-aot true} pedestal-grpc.server)
